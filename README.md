@@ -1,4 +1,4 @@
-jquery-on-delay
+delayed-jquery-on
 ===============
 
 jQuery.on/off extension running handlers by timeout.
