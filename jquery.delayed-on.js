@@ -1,23 +1,23 @@
 /*
- * jQuery onDelay
- * http://github.com/evinogradov/jquery-on-delay
+ * Delayed jQuery.on
+ * http://github.com/evinogradov/delayed-jquery-on
  *
  * @usage:
- * element.onDelay(<delay>, <events>, <handler>, <context>);
- * element.offDelay(<events>, <handler>);
+ * element.delayedOn(<delay>, <events>, <handler>, <context>);
+ * element.delayedOff(<events>, <handler>);
  * 
  * @example:
- * $('.block').onDelay(500, 'mouseover', openMenu, this); // runs openMenu in 500ms after 'mouseover' event fires
+ * $('.block').delayedOn(500, 'mouseover', openMenu, this); // runs openMenu in 500ms after 'mouseover' event fires
  *
  * @example:
- * $('.block').offDelay('mouseover', openMenu); // unbinds openMenu from 'mouseover' event
- * $('.block').offDelay('mouseover'); // unbinds all handlers bound to 'mouseover' event via jQuery.onDelay
+ * $('.block').delayedOff('mouseover', openMenu); // unbinds openMenu from 'mouseover' event
+ * $('.block').delayedOff('mouseover'); // unbinds all handlers bound to 'mouseover' event via jQuery.delayedOn
  *
  */
 
 $.fn.extend({
 
-    onDelay: function(delay, events, callback, context){
+    delayedOn: function(delay, events, callback, context){
 
         var eventsArr = events.split(/\s+/);
         var isDelay = false;
@@ -51,7 +51,7 @@ $.fn.extend({
         this.on(events, handler);
 
     },
-    offDelay: function(events, callback){
+    delayedOff: function(events, callback){
 
         if ( !window.jQueryDelay ) {
             return;
@@ -78,4 +78,3 @@ $.fn.extend({
         }
     },
 });
-

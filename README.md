@@ -5,17 +5,21 @@ jQuery.on/off extension running handlers by timeout.
 
 #### Usage:
 ```
-element.onDelay(<delay>, <events>, <handler>, <context>);
-element.offDelay(<events>, <handler>);
+element.delayedOn(<delay>, <events>, <handler>, <context>);
+element.delayedOff(<events>, <handler>);
 ```
 
 #### Example:
 ```javascript
-$('.block').onDelay(500, 'mouseover', openMenu, this); // runs openMenu in 500ms after 'mouseover' event fires
+// Running openMenu in 500ms after 'mouseover' event fires
+$('.block').delayedOn(500, 'mouseover', openMenu, this);
 ```
 
 #### Example:
 ```javascript
-$('.block').offDelay('mouseover', openMenu); // unbinds openMenu from 'mouseover' event
-$('.block').offDelay('mouseover'); // unbinds all handlers bound to 'mouseover' event via jQuery.onDelay
+// Unbinding openMenu from 'mouseover' event
+$('.block').delayedOff('mouseover', openMenu);
+
+// Unbinding all handlers bound to 'mouseover' event via jQuery.onDelay
+$('.block').delayedOff('mouseover');
 ```
